@@ -1,0 +1,9 @@
+function [dirFileTif, tifNames] = ReadPicFileNames(tifFile)
+
+dirOutput = [dir(fullfile(tifFile, '*.jpg'));...
+    dir(fullfile(tifFile, '*.tif'));...
+    dir(fullfile(tifFile, '*.tiff'));...
+    dir(fullfile(tifFile, '*.BMP'))]; % .tif .tiff .jpg
+dirFileTif = sortObj(dirOutput);
+tifNames = {dirFileTif.name}';
+end
